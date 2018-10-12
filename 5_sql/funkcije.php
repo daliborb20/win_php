@@ -1,5 +1,6 @@
 <?php
 include "./konekcija.php";
+//=====================================================================CREATE USER
 function createUser(){
   global $connection;
   if(isset($_POST["posalji"])){
@@ -29,6 +30,7 @@ function createUser(){
   }
 }
 
+//=====================================================================find  USER
 function pronadji(){
   global $connection;
   $query = "SELECT * FROM korisnici";
@@ -45,6 +47,7 @@ function pronadji(){
   echo "<h1>Hallo </h1>";
 }
 
+//========================================================================izmeni korisnika
 function update(){
   global $connection;
   $ime = $_POST['email'];
@@ -60,7 +63,18 @@ function update(){
      echo "<h4 class='alert alert-success'>Uspesno izmenjeni parametri</h4>";
   }
 }
-
+//=======================================================================izbrisi korisnika
+function izbrisi(){
+  global $connection;
+  $rbr = $_POST['rbr'];
+  $query = "DELETE FROM korisnici WHERE rbr = '$rbr'";
+  $rezultat = mysqli_query($connection, $query);
+  if (!$rezultat){
+     echo "<h4 class='alert alert-danger'>Greska prilikom brisanja korisnika</h4>";
+  } else {
+     echo "h4 class='alert alert-success'>Korisnik  uspesno izbrisan iz baze";
+  }
+}
 
 
 
