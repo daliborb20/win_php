@@ -1,16 +1,7 @@
+<?php include "./konekcija.php"; ?>
+<?php include "./funkcije.php"; ?>
 <?php
     //uspostavljanje konkecije
-  $connection = mysqli_connect("localhost:3306", "root", "linkin", "korisnici");
-  if($connection ){
-     echo "<h5 class='alert alert-success'>Uspesno konektovanje na bazu podataka</h5>";
-  } else{
-     die("Greska prilikom konektovanja na bazu ");
-  }
-  $query = "SELECT * FROM korisnici";
-  $rezultat = mysqli_query($connection, $query);
-  if(!$rezultat){
-     die("Neuspesno citanje" .mysqli_error());
-  }
  //provera upisa u bazu
   /*     echo "*/
           //<table class='table'>
@@ -46,14 +37,8 @@
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>MYSQL</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
+<?php include "./includes/header.php"; ?>
+
  <div class="container col-sm-6 ">
   <form action="" method="POST">
 
@@ -72,19 +57,12 @@
     </div>
   </form>
  </div>
-<?php
-  while($red = mysqli_fetch_assoc($rezultat)){//mysqli_fetch_asoc =====> stampa u obliku asocijativne matrice ili mysqli_fetch_row >>> za stampanje 1,2,3
-    
-?>
+
 <pre>
 <?php
-  print_r($red);
+selektujSve();
+    
+?>
 
-  ?>
 </pre>
-<?php
-  }
-
-  ?>
-</body>
-</html>
+<?php include "./includes/footer.php"; ?>

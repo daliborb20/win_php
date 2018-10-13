@@ -1,6 +1,20 @@
 <?php
 include "./konekcija.php";
 //=====================================================================CREATE USER
+function selektujSve(){
+  global $connection; 
+  $query = "SELECT * FROM korisnici";
+  $rezultat = mysqli_query($connection, $query);
+  if(!$rezultat){
+     die("Neuspesno citanje" .mysqli_error());
+  }
+
+  while($red = mysqli_fetch_assoc($rezultat)){//mysqli_fetch_asoc =====> stampa u obliku asocijativne matrice ili mysqli_fetch_row >>> za stampanje 1,2,3
+
+  print_r($red);
+}
+}
+
 function createUser(){
   global $connection;
   if(isset($_POST["posalji"])){
@@ -23,7 +37,7 @@ function createUser(){
     $rezultat = mysqli_query($connection, $query);
     //provera upisa u bazu
     if(!$rezultat){
-       die("Greska prilikom unosa u bazu".mysqli_error());
+       die("Greska prilikom unosa u bazu".mysqli_error($connection));
     } else{
       echo "<h5 class='alert alert-success'>Uspesno upisno u bazu</h5>";
     }
@@ -45,11 +59,14 @@ function pronadji(){
      echo "<option  value='$rbr'>$rbr</option>";
   }
   echo "<h1>Hallo </h1>";
-}
+  }
+
+
 
 //========================================================================izmeni korisnika
 function update(){
   global $connection;
+  if(isset($_POST["posalji"])){
   $ime = $_POST['email'];
   $lozinka = $_POST['lozinka'];
   $rbr = $_POST['rbr'];
@@ -62,7 +79,7 @@ function update(){
   } else {
      echo "<h4 class='alert alert-success'>Uspesno izmenjeni parametri</h4>";
   }
-}
+}}
 //=======================================================================izbrisi korisnika
 function izbrisi(){
   global $connection;
@@ -75,8 +92,5 @@ function izbrisi(){
      echo "h4 class='alert alert-success'>Korisnik  uspesno izbrisan iz baze";
   }
 }
-
-
-
 
 ?>

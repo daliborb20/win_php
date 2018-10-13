@@ -1,14 +1,9 @@
+
+<?php include "./includes/header.php"; ?>
 <?php include "./konekcija.php"; ?>
 <?php include "./funkcije.php"; ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>MYSQL</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
-<h2 class="text-center">IZMENI</h2>
+
+<h2 class="text-center">BRISANJE</h2>
  <div class="container col-sm-6 ">
   <form action="" method="POST">
 
@@ -37,5 +32,4 @@ izbrisi();
     </div>
   </form>
  </div>
-</body>
-</html>
+<?php include "./includes/footer.php"; ?>

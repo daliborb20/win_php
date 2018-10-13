@@ -5,14 +5,7 @@
 createUser();
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>MYSQL</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
+<?php include "./includes/header.php"; ?>
 <h2 class="text-center">CREATE USER</h2>
  <div class="container col-sm-6 ">
   <form action="" method="POST">
@@ -32,6 +25,4 @@ createUser();
     </div>
   </form>
 
- </div>
-</body>
-</html>
+<?php include "./includes/footer.php"; ?>
